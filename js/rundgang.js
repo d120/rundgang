@@ -15,28 +15,19 @@ function load(viewer, data) {
     let todo = [start];
     var panoramas = {};
 
-    function outer() {
-        if (todo.length == 0) {
-            return;
-        }
+    while (todo.length > 0) {
 
-        console.log("todo:", todo);
         let next = new Set();
 
-        function inner() {
-            if (todo.length == 0) {
-                console.log("done:", panoramas);
-                todo = Array.from(next.values());
-                window.setTimeout(outer, 0);
-                return;
-            }
-
+        while (todo.length > 0) {
             let curr = todo.pop();
-            console.log("curr:", curr);
             let cdata = data.nodes[curr];
 
             // Load panorama
             let pano = new PANOLENS.ImagePanorama(`../media/pano/${cdata.src}`);
+            //pano.addEventListener('progress', onProgress);
+            //pano.addEventListener('error', onError);
+            //pano.addEventListener('load', onLoad);
 
             // Load outbound edges
             for (const [key, value] of Object.entries(cdata.edges)) {
@@ -59,12 +50,17 @@ function load(viewer, data) {
             
             // Add panorama to dict
             panoramas[curr] = pano;
-            viewer.add(pano);
-            window.setTimeout(inner, 20);
         }
-        window.setTimeout(inner, 20);
+        
+        //console.log("done:", panoramas);
+        todo = Array.from(next.values());
     }
-    window.setTimeout(outer, 0);
+    
+    // We need to do this last, because otherwise we may get "race conditions"
+    // with setting visible in the link methods
+    for (const pano of Object.values(panoramas)) {
+        viewer.add(pano);
+    }
 }
 
 function setupRundgang(container) {
@@ -77,4 +73,16 @@ function setupRundgang(container) {
     fetch('../media/pano/data.json')
         .then(response => response.json())
         .then(data => load(viewer, data));
+}
+
+function onProgress(evt) {
+    console.log('progress:', {event: evt, this: this});
+}
+
+function onError(evt) {
+    console.log('error:', {event: evt, this: this});
+}
+
+function onLoad(evt) {
+    console.log('load:', {event: evt, this: this});
 }
