@@ -12,29 +12,31 @@ function load(viewer, data) {
     }
 
     // Initialize
-    let todo = [start];
+    let todo = new Set();
+    todo.add(start);
     var panoramas = {};
 
-    while (todo.length > 0) {
-
+    while (todo.size > 0) {
         let next = new Set();
 
-        while (todo.length > 0) {
-            let curr = todo.pop();
+        for (const curr of todo) {
             let cdata = data.nodes[curr];
 
+            console.log(curr);
             // Load panorama
             let pano = new PANOLENS.ImagePanorama(`../media/pano/${cdata.src}`);
-            //pano.addEventListener('progress', onProgress);
-            //pano.addEventListener('error', onError);
-            //pano.addEventListener('load', onLoad);
+            pano.setLinkingImage('img/arrow-up-green.png');
+            pano.addEventListener('progress', onProgress);
+            pano.addEventListener('error', onError);
+            pano.addEventListener('load', onLoad);
 
             // Load outbound edges
             for (const [key, value] of Object.entries(cdata.edges)) {
                 if (panoramas.hasOwnProperty(key)) {
+                    console.log("->", key);
                     let to = panoramas[key];
                     pano.link(to, new THREE.Vector3(value.x, value.y, value.z));
-                } else {
+                } else if (todo.has(key) == false) {
                     next.add(key);
                 }
             }
@@ -43,6 +45,7 @@ function load(viewer, data) {
             for (const [key, from] of Object.entries(panoramas)) {
                 let node = data.nodes[key];
                 if (node.edges.hasOwnProperty(curr)) {
+                    console.log("<-", key);
                     let value = node.edges[curr];
                     from.link(pano, new THREE.Vector3(value.x, value.y, value.z));
                 }
@@ -53,7 +56,7 @@ function load(viewer, data) {
         }
         
         //console.log("done:", panoramas);
-        todo = Array.from(next.values());
+        todo = next;
     }
     
     // We need to do this last, because otherwise we may get "race conditions"
@@ -70,19 +73,25 @@ function setupRundgang(container) {
         cameraFov: 50,
     });
 
+    window.panoViewer = viewer;
+
     fetch('../media/pano/data.json')
         .then(response => response.json())
         .then(data => load(viewer, data));
 }
 
 function onProgress(evt) {
-    console.log('progress:', {event: evt, this: this});
+    let pct = evt.progress.loaded / evt.progress.total * 100;
+    console.log('progress:', {
+        src: evt.target.src,
+        pct: pct.toFixed(2)+"%",
+    });
 }
 
 function onError(evt) {
-    console.log('error:', {event: evt, this: this});
+    console.log('error:', {src: evt.target.src });
 }
 
 function onLoad(evt) {
-    console.log('load:', {event: evt, this: this});
+    console.log('load:', {src: evt.target.src});
 }
