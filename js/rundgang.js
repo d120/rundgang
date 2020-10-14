@@ -3,6 +3,7 @@ let floor = 0;
 function load(viewer, data) {
     let progressBox = document.getElementById('progress-box');
     let progressBar = document.getElementById('progress-bar');
+    let mapLink = document.getElementById('minimap');
 
     let start = data.start;
 
@@ -91,6 +92,9 @@ function load(viewer, data) {
     function onEnter(evt) {
         console.log('enter:', evt.target.userData.key);
         let pdata = evt.target.userData;
+        if (pdata.plan.hasOwnProperty('f')) {
+            mapLink.href = `plan.html#floor-${pdata.plan.f}`;
+        }
         window.location.hash = `#${pdata.key}`;
         if (!pdata.loaded) {
             progressBar.style.width = '0%';
