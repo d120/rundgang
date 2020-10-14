@@ -35,7 +35,7 @@ function load(viewer, data) {
                 plan: cdata.plan,
                 loaded: false,
             });
-            pano.setLinkingImage('img/arrow-up-green.png');
+            pano.setLinkingImage('img/green-up.png');
             pano.addEventListener('progress', onProgress);
             pano.addEventListener('error', onError);
             pano.addEventListener('load', onLoad);
