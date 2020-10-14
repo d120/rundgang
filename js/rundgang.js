@@ -91,6 +91,7 @@ function load(viewer, data) {
     function onEnter(evt) {
         console.log('enter:', evt.target.userData.key);
         let pdata = evt.target.userData;
+        window.location.hash = `#${pdata.key}`;
         if (!pdata.loaded) {
             progressBar.style.width = '0%';
             progressBox.style.display = 'block';
