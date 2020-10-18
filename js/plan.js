@@ -112,7 +112,7 @@ function floorPlan(floor, view) {
     });
 
     if (_debug) {
-        let plan = `../P_E${floor}.png`;
+        let plan = `../media/debug/P_E${floor}.png`;
         let sprite = PIXI.Sprite.from(plan);
         sprite.interactive = true;
         sprite.y = YOFF - 170;
