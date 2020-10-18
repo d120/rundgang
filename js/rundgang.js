@@ -124,6 +124,7 @@ function setupRundgang(container) {
         container: container,
         horizontalView: false,
         cameraFov: 50,
+        autoHideInfospot: false,
     });
 
     window.panoViewer = viewer;
