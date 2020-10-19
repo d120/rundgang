@@ -11,7 +11,7 @@
     function Floor(fdata, outlines, labelPos, metrics) {
         // Mesh of links
         this.mesh = new PIXI.Graphics();
-        this.mesh.lineStyle(2, 0x00ff00, 1);
+        this.mesh.lineStyle(5, 0x00ff00, 0.7);
         this.mesh.x = metrics.mLeft;
         this.mesh.y = metrics.mTop;
         this.mesh.visible = false;
@@ -97,7 +97,7 @@
             app.stage.addChild(container);
             const blurFilter1 = new PIXI.filters.BlurFilter();
             blurFilter1.blur = 3;
-            outline.filters = [blurFilter1];
+            //outline.filters = [blurFilter1];
             this.outline = outline;
 
             const blurFilter2 = new PIXI.filters.BlurFilter();
@@ -107,10 +107,10 @@
             this.floors = [];
             for (let fdata of data.floors) {
                 let floor = new Floor(fdata, data.outlines, data.labelPos, this.metrics);
-                floor.mesh.filters = [blurFilter2];
+                //floor.mesh.filters = [blurFilter2];
                 container.addChild(floor.mesh);
                 for (label of Object.values(floor.labels)) {
-                    label.filters = [blurFilter2];
+                    //label.filters = [blurFilter2];
                     container.addChild(label);
                 }
 
@@ -126,23 +126,22 @@
                     let dot = new PIXI.Graphics();
                     dot.x = this.metrics.mLeft;
                     dot.y = this.metrics.mTop;
-                    dot.filters = [blurFilter1];
-                    dot.beginFill(0x00ff00);
-                    dot.drawCircle(point.x, point.y, 8);
+                    //dot.filters = [blurFilter1];
+                    dot.beginFill(0x00ff00, 0.5);
+                    dot.drawCircle(point.x, point.y, 15);
                     dot.endFill();
                     dot.key = key;
                     dot.meta = point;
                     dot.interactive = true;
                     dot.on('pointerover', e => {
-                        dot.clear();
-                        dot.beginFill(0x00ff00);
-                        dot.drawCircle(point.x, point.y, 14);
+                        dot.beginFill(0x000000);
+                        dot.drawCircle(point.x, point.y, 10);
                         dot.endFill();
                     });
                     dot.on('pointerout', e => {
                         dot.clear();
-                        dot.beginFill(0x00ff00);
-                        dot.drawCircle(point.x, point.y, 8);
+                        dot.beginFill(0x00ff00, 0.5);
+                        dot.drawCircle(point.x, point.y, 15);
                         dot.endFill();
                     });
                     dot.on('pointerdown', x => {
@@ -213,7 +212,7 @@
         },
         drawOutline(floor) {
             this.outline.clear();
-            this.outline.lineStyle(4, 0x00ff00, 1);
+            this.outline.lineStyle(5, 0x00ff00, 1);
             let fdata = this.data.floors[floor];
             let odata = fdata.outlines.map(x => this.outlines[x]);
             for (const poly of odata) {
