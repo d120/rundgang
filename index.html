@@ -6,16 +6,53 @@
     <title>Virtueller Rundgang</title>
     <script src="js/three.min.js"></script>
     <script src="js/panolens.min.js"></script>
+    <!-- https://unpkg.com/micromodal@0.4.6/dist/micromodal.min.js -->
+    <script src="js/micromodal.min.js"></script>
     <script src="js/rundgang.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/micromodal.css">
   </head>
   <body>
     <div id="progress-box" style="display: none;">
       <div id="progress-bar" style="width: 20%"></div>
     </div>
+    <div class="modal micromodal-slide" id="modal-info" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-info-title">    
+          <header class="modal__header">
+            <h2 class="modal__title" id="modal-info-title">
+              Interaktiver Piloty-Rundgang
+            </h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+    
+          <main class="modal__content" id="modal-info-content">
+            <a href="https://github.com/d120/rundgang">rundgang</a> ist ein Projekt der Fachschaft Informatik an der
+            TU Darmstadt zur Digitalen Winterophase 2020.
+            <hr>
+            All image rights reserved.<br>
+            Uses software from:
+            <ul>
+              <li><a href="https://github.com/pchen66/panolens.js">Panolens.js</a> (MIT)</li>
+              <li><a href="https://github.com/mrdoob/three.js">three.js</a> (MIT)</li>
+              <li><a href="https://github.com/tweenjs/tween.js">tween.js</a> (MIT)</li>
+              <li><a href="https://github.com/pixijs/pixi.js">PixiJS</a> (MIT)</li>
+              <li><a href="https://github.com/ghosh/micromodal">micromodal</a> (MIT)</li>
+            </ul>
+            Icons by Google, licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a><br>
+          </main>
+          <footer class="modal__footer">
+            <!--<button class="modal__btn modal__btn-primary">Continue</button>-->
+            <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+          </footer>
+        </div>
+      </div>
+    </div>
     <div id="viewer"></div>
     <!--<a id="minimap" href="plan.html">Minimap</a>-->
     <script>
+      MicroModal.init();
       const container = document.getElementById('viewer');
       setupRundgang(container);
     </script>

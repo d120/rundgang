@@ -133,7 +133,7 @@ function onMapTap() {
 }
 
 function onInfoTap() {
-    window.alert("Icons by Google, licensed under https://www.apache.org/licenses/LICENSE-2.0");
+    MicroModal.show('modal-info');
 }
 
 function setupRundgang(container) {
