@@ -12,26 +12,12 @@ html, body, #viewer {
     overflow: hidden;
 }
 
-#minimap {
-    display: block;
-    width: 200px;
-    height: 120px;
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    border: 5px solid lime;
-    background-color: black;
-    border-radius: 5px;
-    opacity: 0.3;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    line-height: 110px;
-    font-size: 20pt;
-}
-
-#minimap:hover {
-    opacity: 1;
+#modal-map-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 #progress-box {
