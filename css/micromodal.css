@@ -16,16 +16,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   z-index: 1000;
 }
 
 .modal__container {
   background-color: #000;
-  padding: 30px;
+  padding: 10px;
   max-width: 500px;
   max-height: 100vh;
-  border-radius: 4px;
   overflow-y: auto;
   box-sizing: border-box;
   border: 2px solid lime;
@@ -38,6 +36,36 @@
   max-width: initial;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-height: 500px) {
+  .modal__overlay {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .modal__container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (min-width: 500px) {
+  .modal__overlay {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .modal__container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+  .modal__container {
+    border-radius: 4px;
+  }
 }
 
 .modal__container a {
@@ -83,6 +111,7 @@
 .micromodal-full .modal__content {
   flex: 1 1 auto;
   overflow-y: hidden;
+  margin: 0;
 }
 
 .modal__btn {
@@ -116,17 +145,28 @@
 }
 
 .modal__btn-floor {
-  border: 3px solid lime;
-  font-size: 20pt;
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
+  border: 2px solid lime;
+  font-size: 12pt;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
   background-color: black;
   color: white;
   text-align: center;
   padding: 0;
   font-weight: 900;
-  line-height: 44px;
+  line-height: 25px;
+}
+
+@media (min-height: 500px) {
+  .modal__btn-floor {
+    font-size: 20pt;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    line-height: 44px;
+    border-width: 3px;
+  }
 }
 
 .modal__btn-floor:hover, .modal__btn-floor.active:hover {
