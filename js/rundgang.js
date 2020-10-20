@@ -2,6 +2,17 @@
     // Source: https://materialdesignicons.com/icon/map
     const MAP_ICON = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB0klEQVRo3u2ZMWsUQRxH3yjoFVFRCxUEt1GSJo2VH8DaQoJaGAiIbTpFhGCpHyGtFlapVBDEKiksUh1JZ6HYCIErTBFQkmeREY7Dm7vx1uwtzIPtbn7ze3vcwfwHCoVCobWos+qKuqV21SdqVVP2VfWF+l1dr7N0pS6rGw5nW32sXszMPqkuqB/Ug/7ASUtf6St94PjsxzXL6vlE/pz6XN0ZFvQvpS+pj9TNjMIp9tQ19bbaUWfUB+qncRYP6xkSAt+AyxnO88C9+FQjPvsj7n1q3PAQwl+7pgSyvrb+DdTrwCJwB7iQkzMVAn0Zx4EbwH3gLnC6VQIDeR3gZpS5BZxolcBA9lmg11qBOvOP5YRMI0WgaYpA0xSBpikCTVMEmqYINE0RaJoi0DS1CcRjYnsFgJ04ElxUZ45KoLYz8QB7wFvgFfA+hPBr0vz/fqhP0APeAS+BjyEEp1FgF5DRg6svwOv4dDPyv4YQqqzXNubAdkNdioPaThzcrsVBbh1sxgFz1ph+lEBPXVXnE2vPxB/zG/VnZult9Zl6Lbt0QmA//sMsqFkjQfWc+tD03cKf0rMTlR7YeF39rD5Vc8bsqczKw2uorofXUiu1li4UCoUj5zeLlhNoBfOObwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0xMC0xOFQxNjoyODo1MCswMDowMKP/wEIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMTAtMThUMTY6Mjg6NTArMDA6MDDSonj+AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==";
     const INFO_ICON = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADJklEQVRo3u2ZvU8UURTF7wC7JoCagJgQPgob7SwQkI8G/BsMRFtE/gOiCS3YIwFjr9FWpMTeSGKCDRI1IgFUKATUpfFnMa9Y7ryVeTNvd6LuSUi4MPfcc97MvI87IlVU8X8j8EEC1IpIj4gMiUiXiFwSkVYRaTSXHIrIloisiciKiCyLyMsgCH5l6h7oAO4Bm7jjEzADtGchvAV4ABwlEK5xBMwD5yol/gaw50G4xi4wWk7hOeDhHwTsA4+AW0C3uUs589MC9Jj/PTbXlsICkPMtvh5YKlFwC5gA6h35xoD1EpzPXfjijLxNfAGYAhpSck8aLo1FL3eixGOzDfR5GaGwRj+wY6kzn5b4poV0FejwJb6oVqfh1hhJStgMfFVkO+UQr0zoO7FHkimWcJ4vxk+Xx0YPo0PegOWdmHMV30F0kZpy5EhkwOTesUwY8Vdswu1BMbZcZ5uUBvLAO0UxEze5lujeZsJFQFoDJn9cUWwANXES+1TiPr4WFTcDDcCB0tKjr7M5GlLxYhAEPyptIAiC7yKypP48HMdAl4pfVFp8EZZP0GY1cFHFrzM0oGtrbVJnSWpV8YcklfWLGwRBktOfrq21We9Ao4r3kxjwhG8qPh3HwF8Fm4FDFZ/JUN9ZFR/EMbCt4gsZGtC1tTargTUVX87QgK6ttVkNvFLxsGSHaydoiwK46mMr4WEv1AgcKpruOIk1hE2nYoxlYEBv5j7G2syZ5BmVvI7jATvldvoU8F5RTLsQtBM90ExW0MBdlV4A2lw4hLDdp0n6y20AGLQM3qyTeEPUhP1Q3+lMFr+m7VC/S9K+KTBKFKvlMGHEv7HUu56WeMFCugMMeBQ/CHy21LnvgzxH2KvUKBB2D/IpuPPmhbW16Z8BdUm5daH6EiYg7B6M49C1IFykxolOlcXi/Z7DzZ2YpzQOgCfAbaAXOG9GOG9+7yXsYj8lusIee2y8jXwJIyNEZycf+ELaF9bBRDMwh70t7ooCMAs0VUS8MtJGuO3YSCB8A5jGdYVV8PWZtUZErki49e6SsHvQJsc/s26KyFsJt8TLIrKS+WfWKqr4B/AbewiI7s7vt/4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTAtMThUMTY6NDU6NDcrMDA6MDC3ub+hAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEwLTE4VDE2OjQ1OjQ3KzAwOjAwxuQHHQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=";
+    const EventEmitter = PIXI.utils.EventEmitter;
+
+    function Plugin(options = {}) {
+        EventEmitter.call(this);
+    }
+
+    Plugin.prototype = Object.assign(Object.create(EventEmitter.prototype), {
+        constructor: Plugin,
+        attach(viewer) {},
+        load(data) {},
+    });
 
     const TEXT_STYLE = new PIXI.TextStyle({
         fontSize: 50,
@@ -53,14 +64,36 @@
         }
     });
 
-    function Karte(options = {}) {
-        PIXI.utils.EventEmitter.call(this);
+    function MapPlugin(options = {}) {
+        Plugin.call(this);
         this.floor = null;
     }
 
-    Karte.prototype = Object.assign(Object.create(PIXI.utils.EventEmitter.prototype), {
-        constructor: Karte,
-        load: function(data) {
+    MapPlugin.prototype = Object.assign(Object.create(Plugin.prototype), {
+        name: "map",
+        constructor: MapPlugin,
+        attach(viewer) {
+            // Add a listener
+            viewer.addEventListener('pano-enter', this.onEnter.bind(this));
+            // Load the map button
+            viewer.appendControlItem({
+                style: {
+                    backgroundImage: 'url("' + MAP_ICON + '")',
+                    transition: viewer.DEFAULT_TRANSITION,
+                    webkitTransition: viewer.DEFAULT_TRANSITION,
+                },
+                onTap: () => {
+                    MicroModal.show('modal-map');
+                    this.show();
+                },
+            });
+            // Hook up map selection
+            this.on('setPanorama', e => {
+                MicroModal.close('modal-map');
+                viewer.setPanorama(viewer.panoramas[e.key]);
+            });
+        },
+        load(data) {
             let footer = document.getElementById('modal-map-footer');
             this.contentDiv = document.getElementById('modal-map-content');
 
@@ -220,8 +253,8 @@
             }
         },
         setFloor(f) {
-            console.log("setFloor", f, this.floor);
             if (this.floor !== f) {
+                console.log("setFloor:", this.floor, "->", f);
                 if (this.floor !== null) {
                     this.floors[this.floor].setVisible(false);
                 }
@@ -229,6 +262,12 @@
                 this.floors[this.floor].setVisible(true);
             }
             this.drawOutline(f);
+        },
+        onEnter(event) {
+            let pdata = event.pano.userData;
+            if (pdata.plan.hasOwnProperty('f')) {
+                this.setFloor(pdata.plan.f);
+            }
         },
         show(event) {
             this.handleResize();
@@ -242,7 +281,7 @@
             let width = this.contentDiv.offsetWidth;
             let height = this.contentDiv.offsetHeight;
             //console.log(width, height);
-            
+
             // Check the scale for horizontal display
             let scaleHX = width / this.metrics.totalWidth;
             let scaleHY = height / this.metrics.totalHeight;
@@ -280,187 +319,238 @@
         }
     });
 
-    console.log("Foo");
-
-    function load(viewer, map, data) {
-        map.load(data);
-
-        let progressBox = document.getElementById('progress-box');
-        let progressBar = document.getElementById('progress-bar');
-
-        let start = data.start;
-
-        // If we have a URL hash (e.g. `#road-front`), use that for the start
-        if (window.location.hash) {
-            let hash = window.location.hash.substr(1);
-            let isValid = data.nodes.hasOwnProperty(hash);
-            //console.log(hash, isValid);
-            if (isValid) {
-                start = hash;
-            }
-        }
-
-        // Initialize
-        let todo = new Set();
-        todo.add(start);
-        var panoramas = {};
-
-        while (todo.size > 0) {
-            let next = new Set();
-
-            for (const curr of todo) {
-                let cdata = data.nodes[curr];
-
-                //console.log(curr);
-                // Load panorama
-                let pano = new PANOLENS.ImagePanorama(`../media/pano/${cdata.src}`);
-                Object.assign(pano.userData, {
-                    key: curr,
-                    plan: cdata.plan,
-                    loaded: false,
-                });
-                pano.setLinkingImage('img/green-up.png');
-                pano.addEventListener('progress', onProgress);
-                pano.addEventListener('error', onError);
-                pano.addEventListener('load', onLoad);
-                pano.addEventListener('enter', onEnter);
-                pano.addEventListener('enter-complete', onEnterComplete);
-
-                // Load outbound edges
-                for (const [key, value] of Object.entries(cdata.edges)) {
-                    if (panoramas.hasOwnProperty(key)) {
-                        //console.log("->", key);
-                        let to = panoramas[key];
-                        if (value.hasOwnProperty('i')) {
-                            let image = `img/${value.i}.png`;
-                            pano.link(to, new THREE.Vector3(value.x, value.y, value.z), 300, image);
-                        } else {
-                            pano.link(to, new THREE.Vector3(value.x, value.y, value.z));
-                        }
-                    } else if (todo.has(key) == false) {
-                        next.add(key);
-                    }
-                }
-
-                // Load inbound edges
-                for (const [key, from] of Object.entries(panoramas)) {
-                    let node = data.nodes[key];
-                    if (node.edges.hasOwnProperty(curr)) {
-                        //console.log("<-", key);
-                        let value = node.edges[curr];
-                        if (value.hasOwnProperty('i')) {
-                            let image = `img/${value.i}.png`;
-                            from.link(pano, new THREE.Vector3(value.x, value.y, value.z), 300, image);
-                        } else {
-                            from.link(pano, new THREE.Vector3(value.x, value.y, value.z));
-                        }
-                    }
-                }
-
-                // Add panorama to dict
-                panoramas[curr] = pano;
-            }
-
-            //console.log("done:", panoramas);
-            todo = next;
-        }
-
-        // We need to do this last, because otherwise we may get "race conditions"
-        // with setting visible in the link methods
-        for (const pano of Object.values(panoramas)) {
-            viewer.add(pano);
-        }
-
-        // called when entering a panorama
-        function onEnter(evt) {
-            console.log('enter:', evt.target.userData.key);
-            let pdata = evt.target.userData;
-            if (pdata.plan.hasOwnProperty('f')) {
-                //mapLink.href = `plan.html#floor-${pdata.plan.f}`;
-                map.setFloor(pdata.plan.f);
-            }
-            window.location.hash = `#${pdata.key}`;
-            if (!pdata.loaded) {
-                progressBar.style.width = '0%';
-                progressBox.style.display = 'block';
-            }
-        }
-
-        // called when loading an image makes progress
-        function onProgress(evt) {
-            let pct = evt.progress.loaded / evt.progress.total * 100;
-            let newWidth = pct.toFixed(2) + "%";
-            console.log('progress:', evt.target.userData.key, newWidth);
-            progressBar.style.width = newWidth;
-        }
-
-        // called when loading an image is done
-        function onLoad(evt) {
-            let pdata = evt.target.userData;
-            console.log('load:', evt.target.userData.key);
-            progressBox.style.display = 'none';
-            pdata.loaded = true;
-        }
-
-        map.on('setPanorama', e => {
-            MicroModal.close('modal-map');
-            viewer.setPanorama(panoramas[e.key]);
-        });
+    function ProgressBarPlugin(options = {}) {
+        let progressBoxId = options.progressBoxId !== undefined ? options.progressBoxId : 'progress-box';
+        let progressBarId = options.progressBarId !== undefined ? options.progressBarId : 'progress-bar';
+        this.debug = options.debug !== undefined ? options.debug : false;
+        this.progressBox = document.getElementById(progressBoxId);
+        this.progressBar = document.getElementById(progressBarId);
     }
 
+    ProgressBarPlugin.prototype = Object.assign(Object.create(Plugin.prototype), {
+        constructor: ProgressBarPlugin,
+        name: "progress",
+        attach(viewer) {
+            viewer.addEventListener('pano-enter', this.onEnter.bind(this));
+            viewer.addEventListener('pano-load', this.onLoad.bind(this));
+            viewer.addEventListener('pano-progress', this.onProgress.bind(this));
+        },
+        onEnter(evt) {
+            if (!evt.pano.userData.loaded) {
+                this.progressBar.style.width = '0%';
+                this.progressBox.style.display = 'block';
+            }
+            if (this.debug) {
+                console.log('enter:', evt.pano.userData.key);
+            }
+        },
+        onProgress(evt) {
+            let pct = evt.progress.loaded / evt.progress.total * 100;
+            let newWidth = pct.toFixed(2) + "%";
+            this.progressBar.style.width = newWidth;
+            if (this.debug) {
+                console.log('progress:', evt.pano.userData.key, newWidth);
+            }
+        },
+        onLoad(evt) {
+            this.progressBox.style.display = 'none';
+            if (this.debug) {
+                console.log('load:', evt.pano.userData.key);
+            }
+        }
+    });
+
+    function InfoPlugin(options = {}) {
+        this.modalId = options.modalId !== undefined ? options.modalId : 'modal-info';
+        this.iconUrl = options.iconUrl !== undefined ? options.iconUrl : INFO_ICON;
+    }
+
+    InfoPlugin.prototype = Object.assign(Object.create(Plugin.prototype), {
+        constructor: InfoPlugin,
+        name: "info",
+        attach(viewer) {
+            // Load the info button
+            viewer.appendControlItem({
+                style: {
+                    backgroundImage: 'url("' + this.iconUrl + '")',
+                    transition: viewer.DEFAULT_TRANSITION,
+                    webkitTransition: viewer.DEFAULT_TRANSITION,
+                },
+                onTap: () => {
+                    MicroModal.show(this.modalId);
+                },
+            });
+        }
+    });
+
+    function Viewer(options = {}) {
+        PANOLENS.Viewer.call(this, options);
+        this.plugins = {};
+    }
+
+    Viewer.prototype = Object.assign(Object.create(PANOLENS.Viewer.prototype), {
+        constructor: Viewer,
+        // called when entering a panorama
+        onEnter(evt) {
+            evt.pano = evt.target;
+            evt.type = "pano-enter";
+            window.location.hash = `#${evt.pano.userData.key}`;
+            this.dispatchEvent(evt);
+        },
+        // called when the transition to enter a panorama is over
+        onEnterComplete(evt) {
+            console.log('enter-complete:', evt.target.userData.key);
+        },
+        // called when loading an image makes progress
+        onProgress(evt) {
+            evt.pano = evt.target;
+            evt.type = "pano-progress";
+            this.dispatchEvent(evt);
+        },
+        // called when loading an image is done
+        onLoad(evt) {
+            evt.pano = evt.target;
+            evt.type = "pano-load";
+            evt.pano.userData.loaded = true;
+            this.dispatchEvent(evt);
+        },
+        // called when loading an image fails
+        onError(evt) {
+            console.error('error:', {src: evt.target.src });
+        },
+        attachPlugin(plugin) {
+            if (plugin) {
+                if (plugin.name !== undefined) {
+                    this.plugins[plugin.name] = plugin;
+                    plugin.attach(this);
+                } else {
+                    console.error("Cannot attach", plugin, "as plugin; missing property `name`");
+                }
+            } else {
+                console.trace("Ignoring falsy plugin", plugin);
+            }
+        },
+        loadUrl(url) {
+            fetch(url)
+                .then(response => response.json())
+                .then(this.load.bind(this));
+        },
+        load(data) {
+            for (const plugin of Object.values(this.plugins)) {
+                plugin.load(data);
+            }
+            let start = data.start;
+
+            // If we have a URL hash (e.g. `#road-front`), use that for the start
+            if (window.location.hash) {
+                let hash = window.location.hash.substr(1);
+                let isValid = data.nodes.hasOwnProperty(hash);
+                //console.log(hash, isValid);
+                if (isValid) {
+                    start = hash;
+                }
+            }
+
+            // Initialize
+            let todo = new Set();
+            todo.add(start);
+            var panoramas = {};
+
+            while (todo.size > 0) {
+                let next = new Set();
+
+                for (const curr of todo) {
+                    let cdata = data.nodes[curr];
+
+                    //console.log(curr);
+                    // Load panorama
+                    let pano = new PANOLENS.ImagePanorama(`../media/pano/${cdata.src}`);
+                    Object.assign(pano.userData, {
+                        key: curr,
+                        plan: cdata.plan,
+                        loaded: false,
+                    });
+                    pano.setLinkingImage('img/green-up.png');
+                    pano.addEventListener('progress', this.onProgress.bind(this));
+                    pano.addEventListener('error', this.onError.bind(this));
+                    pano.addEventListener('load', this.onLoad.bind(this));
+                    pano.addEventListener('enter', this.onEnter.bind(this));
+                    pano.addEventListener('enter-complete', this.onEnterComplete.bind(this));
+
+                    // Load outbound edges
+                    for (const [key, value] of Object.entries(cdata.edges)) {
+                        if (panoramas.hasOwnProperty(key)) {
+                            //console.log("->", key);
+                            let to = panoramas[key];
+                            if (value.hasOwnProperty('i')) {
+                                let image = `img/${value.i}.png`;
+                                pano.link(to, new THREE.Vector3(value.x, value.y, value.z), 300, image);
+                            } else {
+                                pano.link(to, new THREE.Vector3(value.x, value.y, value.z));
+                            }
+                        } else if (todo.has(key) == false) {
+                            next.add(key);
+                        }
+                    }
+
+                    // Load inbound edges
+                    for (const [key, from] of Object.entries(panoramas)) {
+                        let node = data.nodes[key];
+                        if (node.edges.hasOwnProperty(curr)) {
+                            //console.log("<-", key);
+                            let value = node.edges[curr];
+                            if (value.hasOwnProperty('i')) {
+                                let image = `img/${value.i}.png`;
+                                from.link(pano, new THREE.Vector3(value.x, value.y, value.z), 300, image);
+                            } else {
+                                from.link(pano, new THREE.Vector3(value.x, value.y, value.z));
+                            }
+                        }
+                    }
+
+                    // Add panorama to dict
+                    panoramas[curr] = pano;
+                }
+
+                //console.log("done:", panoramas);
+                todo = next;
+            }
+
+            // We need to do this last, because otherwise we may get "race conditions"
+            // with setting visible in the link methods
+            for (const pano of Object.values(panoramas)) {
+                this.add(pano);
+            }
+
+            this.panoramas = panoramas;
+        }
+    });
+
     function setupRundgang(container) {
-        const panoViewer = new PANOLENS.Viewer({
+        const panoViewer = new Viewer({
             container: container,
             horizontalView: false,
             cameraFov: 50,
             autoHideInfospot: false,
         });
-        const map = new Karte({});
 
-        // Prepare button styles
-        const baseStyle = { 
-            webkitTransition: viewer.DEFAULT_TRANSITION,
-            transition: viewer.DEFAULT_TRANSITION
-        };
+        const info = new InfoPlugin();
+        const map = new MapPlugin();
+        const progress = new ProgressBarPlugin();
 
-        // Load the map button
-        panoViewer.appendControlItem({
-            style: Object.assign({
-                backgroundImage: 'url("' + MAP_ICON + '")',
-            }, baseStyle),
-            onTap: () => {
-                MicroModal.show('modal-map');
-                map.show();
-            },
-        });
-        // Load the info button
-        panoViewer.appendControlItem({
-            style: Object.assign({
-                backgroundImage: 'url("' + INFO_ICON + '")',
-            }, baseStyle),
-            onTap: () => {
-                MicroModal.show('modal-info');
-            },
-        });
+        panoViewer.attachPlugin(progress);
+        panoViewer.attachPlugin(map);
+        panoViewer.attachPlugin(info);
 
-        window.panoViewer = panoViewer;
-
-        fetch('../media/pano/data.json')
-            .then(response => response.json())
-            .then(data => load(panoViewer, map, data));
+        panoViewer.loadUrl('../media/pano/data.json');
+        return panoViewer;
     }
 
-    function onError(evt) {
-        console.log('error:', {src: evt.target.src });
-    }
-
-    function onEnterComplete(evt) {
-        console.log('enter-complete:', evt.target.userData.key);
-    }
-
-    console.log("FOO");
     window.RUNDGANG = {
-        Karte: Karte,
+        MapPlugin: MapPlugin,
+        InfoPlugin: InfoPlugin,
+        ProgressBarPlugin: ProgressBarPlugin,
+        Plugin: Plugin,
         Floor: Floor,
         setup: setupRundgang,
     };
