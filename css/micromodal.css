@@ -19,6 +19,20 @@
   z-index: 1000;
 }
 
+@media (min-height: 500px) {
+  .modal__overlay {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .modal__overlay {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .modal__container {
   background-color: #000;
   padding: 10px;
@@ -38,33 +52,10 @@
   flex-direction: column;
 }
 
-@media (min-height: 500px) {
-  .modal__overlay {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .modal__container {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-}
-
-@media (min-width: 500px) {
-  .modal__overlay {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .modal__container {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
-
 @media (min-width: 500px) and (min-height: 500px) {
   .modal__container {
     border-radius: 4px;
+    padding: 30px;
   }
 }
 
