@@ -4,6 +4,49 @@
     const INFO_ICON = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADJklEQVRo3u2ZvU8UURTF7wC7JoCagJgQPgob7SwQkI8G/BsMRFtE/gOiCS3YIwFjr9FWpMTeSGKCDRI1IgFUKATUpfFnMa9Y7ryVeTNvd6LuSUi4MPfcc97MvI87IlVU8X8j8EEC1IpIj4gMiUiXiFwSkVYRaTSXHIrIloisiciKiCyLyMsgCH5l6h7oAO4Bm7jjEzADtGchvAV4ABwlEK5xBMwD5yol/gaw50G4xi4wWk7hOeDhHwTsA4+AW0C3uUs589MC9Jj/PTbXlsICkPMtvh5YKlFwC5gA6h35xoD1EpzPXfjijLxNfAGYAhpSck8aLo1FL3eixGOzDfR5GaGwRj+wY6kzn5b4poV0FejwJb6oVqfh1hhJStgMfFVkO+UQr0zoO7FHkimWcJ4vxk+Xx0YPo0PegOWdmHMV30F0kZpy5EhkwOTesUwY8Vdswu1BMbZcZ5uUBvLAO0UxEze5lujeZsJFQFoDJn9cUWwANXES+1TiPr4WFTcDDcCB0tKjr7M5GlLxYhAEPyptIAiC7yKypP48HMdAl4pfVFp8EZZP0GY1cFHFrzM0oGtrbVJnSWpV8YcklfWLGwRBktOfrq21We9Ao4r3kxjwhG8qPh3HwF8Fm4FDFZ/JUN9ZFR/EMbCt4gsZGtC1tTargTUVX87QgK6ttVkNvFLxsGSHaydoiwK46mMr4WEv1AgcKpruOIk1hE2nYoxlYEBv5j7G2syZ5BmVvI7jATvldvoU8F5RTLsQtBM90ExW0MBdlV4A2lw4hLDdp0n6y20AGLQM3qyTeEPUhP1Q3+lMFr+m7VC/S9K+KTBKFKvlMGHEv7HUu56WeMFCugMMeBQ/CHy21LnvgzxH2KvUKBB2D/IpuPPmhbW16Z8BdUm5daH6EiYg7B6M49C1IFykxolOlcXi/Z7DzZ2YpzQOgCfAbaAXOG9GOG9+7yXsYj8lusIee2y8jXwJIyNEZycf+ELaF9bBRDMwh70t7ooCMAs0VUS8MtJGuO3YSCB8A5jGdYVV8PWZtUZErki49e6SsHvQJsc/s26KyFsJt8TLIrKS+WfWKqr4B/AbewiI7s7vt/4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTAtMThUMTY6NDU6NDcrMDA6MDC3ub+hAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEwLTE4VDE2OjQ1OjQ3KzAwOjAwxuQHHQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII=";
     const EventEmitter = PIXI.utils.EventEmitter;
 
+    // ------ TODO ------
+
+    function StartData(options = {}) {
+        if (typeof options === 'string' || options instanceof String) {
+            this.pano = options;
+            this.angleLeft = 0;
+            this.angleUp = 0;
+        } else {
+            this.pano = options.pano !== undefined ? options.pano: 1000;
+            this.angleUp = options.angleUp !== undefined ? options.angleUp: 1000;
+            this.angleLeft = options.angleLeft !== undefined ? options.angleLeft: 1000;
+        }
+    }
+
+    StartData.prototype = Object.assign(Object.create(Object.prototype), {
+        constructor: StartData,
+    });
+
+    //! The data for a plan
+    function PlanData(options = {}) {
+        this.width = options.width !== undefined ? options.width : 1000;
+        this.height = options.height !== undefined ? options.height : 400;
+        this.mTop = options.mTop !== undefined ? options.mTop : 50;
+        this.mRight = options.mRight !== undefined ? options.mRight : 50;
+        this.mBottom = options.mBottom !== undefined ? options.mBottom : 50;
+        this.mLeft = options.mLeft !== undefined ? options.mLeft : 50;
+    }
+
+    PlanData.prototype = Object.assign(Object.create(Object.prototype), {
+        constructor: PlanData,
+    });
+
+    //! The data that defines a rundgang
+    function Data(options = {}) {
+        this.start = options.start !== undefined ? options.start : null;
+    }
+
+    Data.prototype = Object.assign(Object.create(Object.prototype), {
+        constructor: Data,
+    })
+
+    // ---- END TODO ----
+
     function Plugin(options = {}) {
         EventEmitter.call(this);
     }
@@ -98,10 +141,10 @@
             this.contentDiv = document.getElementById('modal-map-content');
 
             this.metrics = {
-                mLeft: data.plan.mleft || 0,
-                mRight: data.plan.mright || 0,
-                mTop: data.plan.mtop || 0,
-                mBottom: data.plan.mbottom || 0,
+                mLeft: data.plan.mLeft || 0,
+                mRight: data.plan.mRight || 0,
+                mTop: data.plan.mTop || 0,
+                mBottom: data.plan.mBottom || 0,
                 width: data.plan.width || 1000,
                 height: data.plan.height || 600,
             };
@@ -363,6 +406,8 @@
     function InfoPlugin(options = {}) {
         this.modalId = options.modalId !== undefined ? options.modalId : 'modal-info';
         this.iconUrl = options.iconUrl !== undefined ? options.iconUrl : INFO_ICON;
+        this.shareLinkId = options.shareLinkId !== undefined ? options.shareLinkId : 'share-link';
+        this.shareAnchor = document.getElementById(this.shareLinkId);
     }
 
     InfoPlugin.prototype = Object.assign(Object.create(Plugin.prototype), {
@@ -377,6 +422,14 @@
                     webkitTransition: viewer.DEFAULT_TRANSITION,
                 },
                 onTap: () => {
+                    if (this.shareAnchor) {
+                        console.log(viewer.control);
+                        let angleLeft = (-viewer.control.getAzimuthalAngle() * 180) / Math.PI;
+                        let angleUp = (-viewer.control.getPolarAngle() * 180) / Math.PI + 90;
+                        let link = `#${viewer.panorama.userData.key}|${angleLeft}|${angleUp}`;
+                        this.shareAnchor.href = link;
+                        this.shareAnchor.innerHTML = link;
+                    }
                     MicroModal.show(this.modalId);
                 },
             });
@@ -439,21 +492,23 @@
             for (const plugin of Object.values(this.plugins)) {
                 plugin.load(data);
             }
-            let start = data.start;
+
+            let start = new StartData(data.start);
 
             // If we have a URL hash (e.g. `#road-front`), use that for the start
             if (window.location.hash) {
-                let hash = window.location.hash.substr(1);
-                let isValid = data.nodes.hasOwnProperty(hash);
-                //console.log(hash, isValid);
-                if (isValid) {
-                    start = hash;
+                let parts = window.location.hash.substr(1).split('|');
+                let pano = parts[0];
+                if (data.nodes[pano] !== undefined) {
+                    start.pano = pano;
+                    start.angleLeft = parts.length > 1 ? Number(parts[1]) : 0;
+                    start.angleUp = parts.length > 2 ? Number(parts[2]) : 0;
                 }
             }
 
             // Initialize
             let todo = new Set();
-            todo.add(start);
+            todo.add(start.pano);
             var panoramas = {};
 
             while (todo.size > 0) {
@@ -520,6 +575,14 @@
             // with setting visible in the link methods
             for (const pano of Object.values(panoramas)) {
                 this.add(pano);
+            }
+
+            // Initial rotation
+            if (start.angleLeft != 0) {
+                this.control.rotateLeft(Math.PI * start.angleLeft / 180);
+            }
+            if (start.angleUp != 0) {
+                this.control.rotateUp(Math.PI * start.angleUp / 180);
             }
 
             this.panoramas = panoramas;
