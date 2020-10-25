@@ -426,7 +426,7 @@
                         console.log(viewer.control);
                         let angleLeft = (-viewer.control.getAzimuthalAngle() * 180) / Math.PI;
                         let angleUp = (-viewer.control.getPolarAngle() * 180) / Math.PI + 90;
-                        let link = `#${viewer.panorama.userData.key}|${angleLeft}|${angleUp}`;
+                        let link = `#${viewer.panorama.userData.key}/${angleLeft.toFixed(3)}/${angleUp.toFixed(3)}`;
                         this.shareAnchor.href = link;
                         this.shareAnchor.innerHTML = link;
                     }
@@ -497,14 +497,17 @@
 
             // If we have a URL hash (e.g. `#road-front`), use that for the start
             if (window.location.hash) {
-                let parts = window.location.hash.substr(1).split('|');
+                let parts = window.location.hash.substr(1).split('/');
                 let pano = parts[0];
+                console.log(parts, data.nodes[pano]);
                 if (data.nodes[pano] !== undefined) {
                     start.pano = pano;
                     start.angleLeft = parts.length > 1 ? Number(parts[1]) : 0;
                     start.angleUp = parts.length > 2 ? Number(parts[2]) : 0;
                 }
             }
+
+            console.log(start);
 
             // Initialize
             let todo = new Set();
