@@ -422,7 +422,7 @@
                     webkitTransition: viewer.DEFAULT_TRANSITION,
                 },
                 onTap: () => {
-                    if (this.shareAnchor) {
+                    if (this.shareAnchor && viewer.panorama) {
                         let angleLeft = (-viewer.control.getAzimuthalAngle() * 180) / Math.PI;
                         let angleUp = (-viewer.control.getPolarAngle() * 180) / Math.PI + 90;
                         let link = `#${viewer.panorama.userData.key}/${angleLeft.toFixed(3)}/${angleUp.toFixed(3)}`;
